@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # Busybox version: 1.22.1
-# Mon Nov  3 16:01:24 2014
+# Wed Jan 28 12:20:20 2015
 #
 CONFIG_HAVE_DOT_CONFIG=y
 
@@ -742,9 +742,9 @@ CONFIG_NC=y
 # CONFIG_NC_SERVER is not set
 # CONFIG_NC_EXTRA is not set
 # CONFIG_NC_110_COMPAT is not set
-# CONFIG_PING is not set
-# CONFIG_PING6 is not set
-# CONFIG_FEATURE_FANCY_PING is not set
+CONFIG_PING=y
+CONFIG_PING6=y
+CONFIG_FEATURE_FANCY_PING=y
 # CONFIG_WHOIS is not set
 CONFIG_FEATURE_IPV6=y
 # CONFIG_FEATURE_UNIX_LOCAL is not set
