@@ -1,0 +1,17 @@
+diff -rupN a/usr/include/curl/types.h b/usr/include/curl/types.h
+--- a/usr/include/curl/types.h	1969-12-31 19:00:00.000000000 -0500
++++ b/usr/include/curl/types.h	2014-11-10 11:30:59.737386522 -0500
+@@ -0,0 +1 @@
++/* not used */
+diff -rupN a/usr/include/netinet/in.h b/usr/include/netinet/in.h
+--- a/usr/include/netinet/in.h	2014-11-10 11:28:53.645391738 -0500
++++ b/usr/include/netinet/in.h	2014-11-10 11:38:42.261367386 -0500
+@@ -230,7 +230,7 @@ extern const struct in6_addr in6addr_loo
+ #define IN6ADDR_LOOPBACK_INIT { { { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1 } } }
+ 
+ #define INET_ADDRSTRLEN 16
+-#define INET6_ADDRSTRLEN 46
++#define INET6_ADDRSTRLEN 48
+ 
+ 
+ /* Structure describing an Internet socket address.  */
