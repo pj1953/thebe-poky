@@ -5,9 +5,11 @@ SECTION = "base"
 SRC_URI = "${DEBIAN_MIRROR}/main/d/dpkg/dpkg_${PV}.tar.xz \
            file://ignore_extra_fields.patch"
 
+SRC_URI_append_class-native = " file://tar-error-code.patch"
+
 DEPENDS = "zlib bzip2 perl ncurses"
 DEPENDS_class-native = "bzip2-replacement-native zlib-native virtual/update-alternatives-native gettext-native perl-native"
-RDEPENDS_${PN} = "${VIRTUAL-RUNTIME_update-alternatives} xz run-postinsts"
+RDEPENDS_${PN} = "${VIRTUAL-RUNTIME_update-alternatives} xz run-postinsts perl"
 RDEPENDS_${PN}_class-native = "xz-native"
 
 S = "${WORKDIR}/${BPN}-${PV}"
@@ -36,6 +38,8 @@ EXTRA_OECONF = "\
 		--without-liblzma \
 		--without-selinux \
 		"
+
+EXTRA_OECONF_append_class-target = " TAR=tar"
 
 do_configure () {
     echo >> ${S}/m4/compiler.m4

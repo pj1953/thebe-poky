@@ -213,6 +213,7 @@ kernel_do_install() {
 	#
 	kerneldir=${D}${KERNEL_SRC_PATH}
 	install -d $kerneldir
+	mkdir -p ${D}/lib/modules/${KERNEL_VERSION}
 	ln -sf ${KERNEL_SRC_PATH} "${D}/lib/modules/${KERNEL_VERSION}/build"
 
 	#
@@ -390,7 +391,7 @@ python split_kernel_packages () {
 
 do_strip() {
 	if [ -n "${KERNEL_IMAGE_STRIP_EXTRA_SECTIONS}" ]; then
-		if [[ "${KERNEL_IMAGETYPE}" != "vmlinux" ]]; then
+		if [ "${KERNEL_IMAGETYPE}" != "vmlinux" ]; then
 			bbwarn "image type will not be stripped (not supported): ${KERNEL_IMAGETYPE}"
 			return
 		fi
@@ -402,7 +403,7 @@ do_strip() {
 			  gawk '{print $1}'`
 
 		for str in ${KERNEL_IMAGE_STRIP_EXTRA_SECTIONS}; do {
-			if [[ "$headers" != *"$str"* ]]; then
+			if [ "$headers" != *"$str"* ]; then
 				bbwarn "Section not found: $str";
 			fi
 

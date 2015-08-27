@@ -19,6 +19,8 @@ SRC_URI += "file://acinclude.m4 \
             file://0012-Fix-musl-build-failures.patch \
             file://0001-e2fsprogs-fix-cross-compilation-problem.patch \
             file://misc-mke2fs.c-return-error-when-failed-to-populate-fs.patch \
+            file://cache_inode.patch \
+            file://CVE-2015-0247.patch \
 "
 
 SRC_URI[md5sum] = "3f8e41e63b432ba114b33f58674563f7"
@@ -52,6 +54,14 @@ do_install () {
 	oe_multilib_header ext2fs/ext2_types.h
 	install -d ${D}${base_bindir}
 	mv ${D}${bindir}/chattr ${D}${base_bindir}/chattr.e2fsprogs
+
+	install -v -m 755 ${S}/contrib/populate-extfs.sh ${D}${base_sbindir}/
+}
+
+do_install_append_class-target() {
+	# Clean host path in compile_et, mk_cmds
+	sed -i -e "s,ET_DIR=\"${S}/lib/et\",ET_DIR=\"${datadir}/et\",g" ${D}${bindir}/compile_et
+	sed -i -e "s,SS_DIR=\"${S}/lib/ss\",SS_DIR=\"${datadir}/ss\",g" ${D}${bindir}/mk_cmds
 }
 
 RDEPENDS_e2fsprogs = "e2fsprogs-badblocks"

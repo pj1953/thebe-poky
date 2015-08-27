@@ -15,7 +15,6 @@ SRC_URI += "file://configure-targets.patch \
             file://shared-libs.patch \
             file://oe-ldflags.patch \
             file://engines-install-in-libdir-ssl.patch \
-            file://openssl-fix-link.patch \
             file://debian/version-script.patch \
             file://debian/pic.patch \
             file://debian/c_rehash-compat.patch \
@@ -29,7 +28,6 @@ SRC_URI += "file://configure-targets.patch \
             file://openssl_fix_for_x32.patch \
             file://fix-cipher-des-ede3-cfb1.patch \
             file://openssl-avoid-NULL-pointer-dereference-in-EVP_DigestInit_ex.patch \
-            file://openssl-avoid-NULL-pointer-dereference-in-dh_pub_encode.patch \
             file://initial-aarch64-bits.patch \
             file://find.pl \
             file://openssl-fix-des.pod-error.patch \
@@ -38,8 +36,8 @@ SRC_URI += "file://configure-targets.patch \
             file://run-ptest \
            "
 
-SRC_URI[md5sum] = "f7175c9cd3c39bb1907ac8bba9df8ed3"
-SRC_URI[sha256sum] = "1b60ca8789ba6f03e8ef20da2293b8dc131c39d83814e775069f02d26354edf3"
+SRC_URI[md5sum] = "7563e92327199e0067ccd0f79f436976"
+SRC_URI[sha256sum] = "bd5ee6803165c0fb60bbecbacacf244f1f90d2aa0d71353af610c29121e9b2f1"
 
 PACKAGES =+ " \
 	${PN}-engines \

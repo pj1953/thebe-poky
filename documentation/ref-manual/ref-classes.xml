@@ -580,8 +580,8 @@
 
     <para>
         The <filename>debian</filename> class renames output packages so that
-        they follow the Debian naming policy (i.e. <filename>eglibc</filename>
-        becomes <filename>libc6</filename> and <filename>eglibc-devel</filename>
+        they follow the Debian naming policy (i.e. <filename>glibc</filename>
+        becomes <filename>libc6</filename> and <filename>glibc-devel</filename>
         becomes <filename>libc6-dev</filename>.)
         Renaming includes the library name and version as part of the package
         name.
@@ -1177,7 +1177,7 @@
         <link linkend='var-ICECC_DISABLED'><filename>ICECC_DISABLED</filename></link>
         variable to "1" as follows:
         <literallayout class='monospaced'>
-     INHERIT_DISTRO += "icecc"
+     INHERIT_DISTRO_append = " icecc"
      ICECC_DISABLED ??= "1"
         </literallayout>
         This practice makes sure everyone is using the same signatures but also
@@ -2278,7 +2278,7 @@
     <title><filename>package_rpm.bbclass</filename></title>
 
     <para>
-        The <filename>package_deb</filename> class
+        The <filename>package_rpm</filename> class
         provides support for creating packages that use the
         <filename>.rpm</filename> file format.
         The class ensures the packages are written out to the
@@ -2797,7 +2797,7 @@
         file.
         Here is an example:
         <literallayout class='monospaced'>
-    RM_WORK_EXCLUDE += "busybox eglibc"
+    RM_WORK_EXCLUDE += "busybox glibc"
         </literallayout>
     </para>
 </section>
